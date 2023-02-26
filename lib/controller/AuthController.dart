@@ -215,7 +215,11 @@ addProfileImage() async{
     ImagePicker imagePicker = ImagePicker();
     XFile? file = await imagePicker.pickImage(source: ImageSource.gallery);
 
-
+    if(file==null || file=='' || file==' '){
+      Get.snackbar('Unable to update', 'Choose a file to change our profile photo');
+      return;
+    }
+    Get.snackbar('Uploading ...','Please wait.');
     //creating a unique file name to image using datetime.now() function
     String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
     Reference referenceRoot = FirebaseStorage.instance.ref();
@@ -232,7 +236,7 @@ addProfileImage() async{
     
     try{
       //upload image
-      await referenceImage.putFile(File(file!.path));
+      await referenceImage.putFile(File(file.path));
       //Sucess: Get image download url 
       imgUrl = await referenceImage.getDownloadURL();
 

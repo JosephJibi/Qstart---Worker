@@ -38,12 +38,12 @@ final ctrl = Get.put(AuthController());
              SizedBox(
               height: Dimensions.height70,
             ),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: Dimensions.height120,
-                  width: Dimensions.width120,
+                  height: Dimensions.height59,
+                  width: Dimensions.width90,
                   child: Image.asset(
                     'assets/images/logo.png',
                     fit: BoxFit.cover,
@@ -51,12 +51,12 @@ final ctrl = Get.put(AuthController());
                 ),
                  Text(
                   'QSTART',
-                  style: TextStyle(
-                      color: const Color.fromARGB(255, 77, 82, 89),
+                  style: GoogleFonts.amaranth(
+                      color:  Colors.grey.shade900,
                       letterSpacing: Dimensions.height2,
                       fontSize: Dimensions.height40,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Amaranth-Bold'),
+                    ),
                 )
               ],
             ),

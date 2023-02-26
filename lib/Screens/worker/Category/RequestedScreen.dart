@@ -53,6 +53,7 @@ var flag=0;
                                           fit: BoxFit.contain),),
                       Text(
                         'No requested \n  complaints',
+                          textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                             fontSize: Dimensions.height15,
                             fontWeight: FontWeight.w500),

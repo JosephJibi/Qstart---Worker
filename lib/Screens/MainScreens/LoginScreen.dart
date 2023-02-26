@@ -177,16 +177,52 @@ class LoginScreen extends StatelessWidget {
           builder: (ctx1) {
       return 
           AlertDialog(
-             
+            actions: [
+                Center(
+                  child: Column(
+                    children: [
+                       GestureDetector(
+                    onTap: (){
+                      ctr.resetpassword();
+                    },
+                     child: Padding(
+                       padding: const EdgeInsets.only(right: 10,left: 10),
+                       child: Container(
+                          height: Dimensions.height50,
+                            padding:  EdgeInsets.all(Dimensions.height5),
+                            decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 39, 183, 240),
+                                borderRadius: BorderRadius.circular(Dimensions.height12)),
+                            child:  Center(
+                                child: Text(
+                              'Send Reset Link',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.height15),
+                            )),
+                          ),
+                     ),
+                   ),
+              
+                      TextButton(onPressed: (){
+                        Navigator.of(ctx).pop();
+                      }, child: const Text('Close')),
+                      SizedBox(height: Dimensions.height20,),
+                    ],
+                  ),
+                )
+            ],
+             title: Center(child: Text('Forget Password ?',style: GoogleFonts.poppins(fontSize: Dimensions.height30))),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(Dimensions.height25),bottomLeft: Radius.circular(Dimensions.height25))),
             content: Container(
                width: MediaQuery.of(ctx).size.width,
-            height: Dimensions.height300,
+            height: Dimensions.height100,
                padding: EdgeInsets.all(Dimensions.height11),
             color: Colors.white,
               child: ListView(
                 children: [
-                  Center(child: Text('Forgot Password',style: GoogleFonts.poppins(fontSize: Dimensions.height30))),
+                  
                   SizedBox(height: Dimensions.height10,),
                 TextFormField(
                   controller: ctr.resetEmail,
@@ -198,30 +234,7 @@ class LoginScreen extends StatelessWidget {
                           label: const Text('Email Id')),
                     ),
                 SizedBox(height: Dimensions.height20,),
-                 GestureDetector(
-                  onTap: (){
-                    ctr.resetpassword();
-                  },
-                   child: Container(
-                      height: Dimensions.height50,
-                        padding:  EdgeInsets.all(Dimensions.height2),
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 39, 183, 240),
-                            borderRadius: BorderRadius.circular(Dimensions.height12)),
-                        child:  Center(
-                            child: Text(
-                          'Send Reset Link',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: Dimensions.height15),
-                        )),
-                      ),
-                 ),
-                    SizedBox(height: Dimensions.height20,),
-                    TextButton(onPressed: (){
-                      Navigator.of(ctx).pop();
-                    }, child: const Text('Close'))
+                
                 
               ]),
             ),

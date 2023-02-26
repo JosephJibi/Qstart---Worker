@@ -32,22 +32,22 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: Dimensions.height120,
-                    width: Dimensions.width120,
+                    height: Dimensions.height100,
+                    width: Dimensions.width250,
                     child: Image.asset(
-                      'assets/images/logo.png',
+                      'assets/images/logotext.png',
                       fit: BoxFit.cover,
                     ),
                   ),
-                  Text(
-                    'QSTART',
-                    style: GoogleFonts.amaranth(
-                      color: const Color.fromARGB(255, 77, 82, 89),
-                      letterSpacing: Dimensions.height2,
-                      fontSize: Dimensions.height40,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  // Text(
+                  //   'QSTART',
+                  //   style: GoogleFonts.amaranth(
+                  //     color: const Color.fromARGB(255, 77, 82, 89),
+                  //     letterSpacing: Dimensions.height2,
+                  //     fontSize: Dimensions.height40,
+                  //     fontWeight: FontWeight.bold,
+                  //   ),
+                  // ),
                 ],
               ),
               SizedBox(height: Dimensions.height15,),

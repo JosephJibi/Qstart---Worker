@@ -29,7 +29,7 @@ class DoneScreen extends StatelessWidget {
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (!snapshot.hasData) return LinearProgressIndicator();
             return ListView(
-              padding: EdgeInsets.all(0),
+         padding: EdgeInsets.only(top: Dimensions.height20),
               // physics: BouncingScrollPhysics(),
               // shrinkWrap: true,
               children: snapshot.data!.docs.map((document) {
@@ -47,6 +47,7 @@ class DoneScreen extends StatelessWidget {
                           ),
                       Text(
                         'You haven\'t done \n any complaints',
+                          textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                             fontSize: Dimensions.height15,
                             fontWeight: FontWeight.w500),

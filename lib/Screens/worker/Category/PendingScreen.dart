@@ -31,7 +31,7 @@ class PendingScreen extends StatelessWidget {
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (!snapshot.hasData) return LinearProgressIndicator();
             return ListView(
-              padding: EdgeInsets.all(0),
+             padding: EdgeInsets.only(top: Dimensions.height20),
               // physics: BouncingScrollPhysics(),
               // shrinkWrap: true,
               children: snapshot.data!.docs.map((document) {
@@ -48,8 +48,10 @@ class PendingScreen extends StatelessWidget {
                                           fit: BoxFit.contain),
                           ),
                       Text(
-                        'There is no pending\n complaints',
+                        'There is no pending\ncomplaints',
+                        textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
+                          
                             fontSize: Dimensions.height15,
                             fontWeight: FontWeight.w500),
                       )

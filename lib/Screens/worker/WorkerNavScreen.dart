@@ -30,7 +30,7 @@ class _WorkerNavScreenState extends State<WorkerNavScreen> {
       bottomNavigationBar: Container(
         color: Colors.white,
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: Dimensions.height15,vertical: Dimensions.height20),
+          padding:  EdgeInsets.symmetric(horizontal: Dimensions.height15,vertical: Dimensions.height8),
           child: GNav(
             onTabChange: (value) {
               print(value);

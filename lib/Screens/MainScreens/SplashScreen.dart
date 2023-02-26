@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:qstart_worker/Screens/worker/WorkerNavScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -60,12 +61,12 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Text(
             'QSTART',
-            style: TextStyle(
+            style: GoogleFonts.amaranth(
                 color: const Color.fromARGB(255, 77, 82, 89),
                 letterSpacing: Dimensions.height2,
                 fontSize: Dimensions.height40,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'Amaranth-Bold'),
+                ),
           ),
           // Spacer(),
           // Text('where the question ends, we begin'),

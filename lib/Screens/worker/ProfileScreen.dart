@@ -5,9 +5,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:qstart_worker/Screens/Popup/InfoPopup.dart';
 
 import '../../controller/AuthController.dart';
 import '../../utilities/Dimensions.dart';
+import '../Popup/HelpPopup.dart';
 
 class ProfileScreen extends StatelessWidget {
    ProfileScreen({super.key});
@@ -30,7 +32,9 @@ class ProfileScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      infoPopUp(context);
+                    },
                     icon: const FaIcon(
                         color: Color.fromARGB(255, 58, 73, 99),
                         FontAwesomeIcons.circleInfo))
@@ -148,7 +152,15 @@ class ProfileScreen extends StatelessWidget {
                 // content: '9496035739',
                 content: ctrl.profiledata['phoneNo'],
                 cardicon: const Icon(Icons.phone)),
-           
+           //Different Statues popup
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(onPressed: (){
+                    helpPopup(context);
+                }, child: Text('Different Statues ? '))
+              ],
+            ),
 
             GestureDetector(
               onTap: () {
