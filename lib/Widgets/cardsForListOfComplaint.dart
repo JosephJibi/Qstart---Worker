@@ -99,7 +99,9 @@ GestureDetector cardsForListOfComplaint(QueryDocumentSnapshot document) {
                             SizedBox(
                               width: Dimensions.width5,
                             ),
-                            Text(document['date'])
+                            Text(document['date'],
+                            
+                            )
                           ],
                         ),
                       ),

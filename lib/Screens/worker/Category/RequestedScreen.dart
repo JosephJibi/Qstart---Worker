@@ -33,7 +33,13 @@ var flag=0;
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                  
-            if (!snapshot.hasData) return LinearProgressIndicator();
+            if (!snapshot.hasData) return Center(child: Column(
+              children: [
+                Container(
+                 
+                  child: CircularProgressIndicator()),
+              ],
+            ));
             return ListView(
               padding: EdgeInsets.only(top: Dimensions.height20),
               // physics: BouncingScrollPhysics(),

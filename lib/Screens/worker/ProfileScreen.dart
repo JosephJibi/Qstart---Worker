@@ -49,7 +49,7 @@ class ProfileScreen extends StatelessWidget {
                   child: Obx(
                     () => ClipRRect(
                         borderRadius:
-                            BorderRadius.circular(Dimensions.height50),
+                            BorderRadius.circular(Dimensions.height100),
                         child: (ctrl.profimg.value == '')
                             ? Image.asset(
                                 fit: BoxFit.cover, 'assets/images/default.png')
@@ -65,16 +65,27 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: Dimensions.height140, //
-                  left: Dimensions.height130, //
-                  child: IconButton(
-                      onPressed: () {
-                        ctrl.addProfileImage();
-                      },
-                      icon: Icon(
-                        FontAwesomeIcons.cameraRetro,
-                        size: Dimensions.height28,
-                      )),
+                  // top: Dimensions.height140, //
+                  // left: Dimensions.height130, //
+                  bottom: 0,
+                  right: -20,
+                  // child: IconButton(
+                  //     onPressed: () {
+                  //       ctrl.addProfileImage();
+                  //     },
+                  //     icon: Icon(
+                  //       FontAwesomeIcons.cameraRetro,
+                  //       size: Dimensions.height28,
+                  //     )),
+                 child:RawMaterialButton(onPressed: (){
+                     ctrl.addProfileImage();
+                  },
+                  elevation: 2.0,
+                fillColor: Color(0xFFF5F6F9),
+                child: Icon(Icons.camera_alt_outlined, color: Colors.black,),
+                padding: EdgeInsets.all(10.0),
+                shape: CircleBorder(),
+                  )
                 ),
               ],
             ),

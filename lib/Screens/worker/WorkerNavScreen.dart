@@ -1,13 +1,10 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:qstart_worker/Screens/worker/Category/CategoryScreen.dart';
-import 'package:qstart_worker/Screens/worker/HomeScreen.dart';
-import 'package:qstart_worker/Screens/worker/ProfileScreen.dart';
 
 import '../../utilities/Dimensions.dart';
+import 'Category/CategoryScreen.dart';
+import 'HomeScreen.dart';
+import 'ProfileScreen.dart';
 
 class WorkerNavScreen extends StatefulWidget {
   const WorkerNavScreen({super.key});
@@ -17,49 +14,41 @@ class WorkerNavScreen extends StatefulWidget {
 }
 
 class _WorkerNavScreenState extends State<WorkerNavScreen> {
-   int index = 0;
+  int index = 2;
   final _pages = [
-     HomeScreen(),
+ HomeScreen(),
      CategoryScreen(),
-     ProfileScreen(),
-  ];
+     ProfileScreen(),  ];
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: _pages[index],
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: Dimensions.height15,vertical: Dimensions.height8),
-          child: GNav(
-            onTabChange: (value) {
-              print(value);
-              setState(() {
-                index=value;
-              });
-            },
-            gap: Dimensions.height8,
-            backgroundColor: Colors.white,
-            color: Colors.black,
-            activeColor: Colors.white,
-            tabBackgroundGradient: LinearGradient(
-                           colors: [Colors.blue.shade400,Colors.blue.shade300, Colors.blue.shade200],
-                           begin: Alignment.bottomLeft,
-                           end: Alignment.topRight),
-            padding: EdgeInsets.all(Dimensions.height16),
-             tabBorderRadius: Dimensions.height15, 
-            tabs: [
-            GButton(icon: Icons.home,
-            text: 'Home',),
-            GButton(icon: Icons.category,
-            text: 'Category',
-            ),
-            GButton(icon: Icons.person,
-            text: 'Profile',
-            ),
-          ]),
-        ),
+    final items = <Widget>[
+      Icon(
+        Icons.home,
+        size: Dimensions.height30,
       ),
+      Icon(
+        Icons.category,
+        size: Dimensions.height30,
+      ),
+      Icon(
+        Icons.person,
+        size: Dimensions.height30,
+      ),
+    ];
+    return Scaffold(
+      extendBody: true,
+      backgroundColor: const Color.fromARGB(255, 234, 228, 228),
+      body: _pages[index],
+      bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.transparent,
+          height: Dimensions.height60,
+          index: index,
+          items: items,
+          onTap: (index) {
+            setState(() {
+              this.index = index;
+            });
+          }),
     );
   }
 }

@@ -60,7 +60,7 @@ class RegistrationScreen extends StatelessWidget {
                   ),
                   boxShadow:  [
                     BoxShadow(
-                      color: const Color.fromARGB(255, 97, 85, 85),
+                      color: Colors.grey.shade500,
                       spreadRadius: Dimensions.height07,
                       blurRadius: Dimensions.height12,
                     )
@@ -185,8 +185,8 @@ class RegistrationScreen extends StatelessWidget {
                               'Sign Up',
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: Dimensions.height18),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: Dimensions.height25),
                             )),
                           ),
                         ),

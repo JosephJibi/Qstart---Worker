@@ -29,11 +29,10 @@ class QuestionScreen extends StatelessWidget {
             ),
             //text
             Text('Who are you ?',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                     letterSpacing: Dimensions.height2,
                     fontSize: Dimensions.height35,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Amaranth-Bold')),
+                    fontWeight: FontWeight.w700)),
             SizedBox(
               height: Dimensions.height10,
             ), // +#
@@ -69,7 +68,7 @@ class QuestionScreen extends StatelessWidget {
                             }),
                         Text(
                           'I\'m a Carpenter   ',
-                          style: GoogleFonts.firaSans(
+                          style: GoogleFonts.poppins(
                             fontSize: Dimensions.height20,
                           ),
                         ),
@@ -108,7 +107,7 @@ class QuestionScreen extends StatelessWidget {
                             }),
                         Text(
                           'I\'m a Electrician',
-                          style: GoogleFonts.firaSans(
+                          style: GoogleFonts.poppins(
                             fontSize: Dimensions.height20,
                           ),
                         ),
@@ -145,8 +144,8 @@ class QuestionScreen extends StatelessWidget {
                             }),
                         Text(
                           'I\'m a Painter     ',
-                          style: GoogleFonts.firaSans(
-                            fontSize: Dimensions.width20,
+                          style: GoogleFonts.poppins(
+                            fontSize: Dimensions.height20,
                           ),
                         ),
                         const Spacer(),
@@ -182,7 +181,7 @@ class QuestionScreen extends StatelessWidget {
                             }),
                         Text(
                           'I\'m a Plumber     ',
-                          style: GoogleFonts.firaSans(
+                          style: GoogleFonts.poppins(
                             fontSize: Dimensions.height20,
                           ),
                         ),
@@ -218,7 +217,7 @@ class QuestionScreen extends StatelessWidget {
                             }),
                         Text(
                           'None of above(Others)',
-                          style: GoogleFonts.firaSans(
+                          style: GoogleFonts.poppins(
                             fontSize: Dimensions.height20,
                           ),
                         ),

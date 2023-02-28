@@ -28,10 +28,11 @@ Future infoPopUp(BuildContext ctx) async {
                    Radius.circular(Dimensions.height28))),
           content: Container(
             width: MediaQuery.of(ctx).size.width,
-            height: Dimensions.height130,
+            height: Dimensions.height140,
             padding: EdgeInsets.all(Dimensions.height11),
             color: Color.fromRGBO(255, 255, 255, 1),
             child: SingleChildScrollView(
+             physics: BouncingScrollPhysics(),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -39,12 +40,14 @@ Future infoPopUp(BuildContext ctx) async {
                     SizedBox(
                       height: Dimensions.height10,
                     ),
-                   Text('Developed by : Jibi Joseph,',style: GoogleFonts.poppins(),),
+                   Text('Developed by : Jibi Joseph,',
+                   textAlign: TextAlign.center
+                   ,style: GoogleFonts.poppins(),),
                     SizedBox(
                       height: Dimensions.height5,
                     ),
-                    Text('Prof. Renie Mathews,',style: GoogleFonts.poppins(),),
-                    Text('Asish, Jerome, Adithyan',style: GoogleFonts.poppins(),),
+                    Text('Prof. Renie Mathews,',style: GoogleFonts.poppins(),textAlign: TextAlign.center),
+                    Text('Asish, Jerome, Adithyan',style: GoogleFonts.poppins(),textAlign: TextAlign.center),
                     SizedBox(
                       height: Dimensions.height20,
                     ),

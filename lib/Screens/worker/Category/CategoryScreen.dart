@@ -54,7 +54,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             ]),
           ),
           //second container
-
+    
           Expanded(
             child: Container(
               width: MediaQuery.of(context).size.width,
@@ -66,15 +66,17 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color.fromARGB(255, 97, 85, 85),
-                      spreadRadius: Dimensions.height07,
+                      color:  Colors.grey.shade500,
+                      spreadRadius: Dimensions.height1,
                       blurRadius: Dimensions.height15,
+                      offset: Offset(1,-14)
                     )
                   ]),
               child: DefaultTabController(
+                
                 length: 3,
                 child: Padding(
-                  padding:  EdgeInsets.all(Dimensions.height2),
+                  padding:  EdgeInsets.all(Dimensions.height5),
                   child: Column(
                     children: [
                       SizedBox(height: Dimensions.height20,),
@@ -89,7 +91,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         ),
                         
                         child: TabBar(
-                        
+                       
+                        physics: BouncingScrollPhysics(),
                           // give the indicator a decoration (color and border radius)
                           indicator: BoxDecoration(
                             borderRadius: BorderRadius.circular(
@@ -112,7 +115,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             Tab(
                               text: 'Done',
                             ),
-
+    
                             // second tab [you can add an icon using the icon property]
                             Tab(
                               text: 'Pending',
@@ -124,14 +127,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       // tab bar view here
                        Expanded(
                         child: TabBarView(
-                          
+                          physics: BouncingScrollPhysics(),
                           children: [
                             // first tab bar view widget
                             DoneScreen(),
-
+    
                             // second tab bar view widget
                             PendingScreen(),
-
+    
                             //third tab bar view widget
                             RequestedScreen()
                           ],

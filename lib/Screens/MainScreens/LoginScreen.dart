@@ -25,6 +25,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: ListView(
+            padding: EdgeInsets.only(top: Dimensions.height10,bottom: Dimensions.height10),
         children: [
           SizedBox(
             height: Dimensions.height10, 
@@ -141,8 +142,8 @@ class LoginScreen extends StatelessWidget {
                         'Sign In',
                         style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: Dimensions.height18),
+                            fontWeight: FontWeight.w700,
+                            fontSize: Dimensions.height22),
                       )),
                     ),
                   ),
@@ -161,6 +162,7 @@ class LoginScreen extends StatelessWidget {
                         )),
                   ],
                 ),
+  
               ],
             ),
           ),
@@ -179,45 +181,48 @@ class LoginScreen extends StatelessWidget {
           AlertDialog(
             actions: [
                 Center(
-                  child: Column(
-                    children: [
-                       GestureDetector(
-                    onTap: (){
-                      ctr.resetpassword();
-                    },
-                     child: Padding(
-                       padding: const EdgeInsets.only(right: 10,left: 10),
-                       child: Container(
-                          height: Dimensions.height50,
-                            padding:  EdgeInsets.all(Dimensions.height5),
-                            decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 39, 183, 240),
-                                borderRadius: BorderRadius.circular(Dimensions.height12)),
-                            child:  Center(
-                                child: Text(
-                              'Send Reset Link',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: Dimensions.height15),
-                            )),
-                          ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                         GestureDetector(
+                      onTap: (){
+                        ctr.resetpassword();
+                      },
+                       child: Padding(
+                         padding: const EdgeInsets.only(right: 10,left: 10),
+                         child: Container(
+                            height: Dimensions.height50,
+                              padding:  EdgeInsets.all(Dimensions.height5),
+                              decoration: BoxDecoration(
+                                  color: const Color.fromARGB(255, 39, 183, 240),
+                                  borderRadius: BorderRadius.circular(Dimensions.height12)),
+                              child:  Center(
+                                  child: Text(
+                                'Send Reset Link',
+                                style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: Dimensions.height20),
+                              )),
+                            ),
+                       ),
                      ),
-                   ),
               
-                      TextButton(onPressed: (){
-                        Navigator.of(ctx).pop();
-                      }, child: const Text('Close')),
-                      SizedBox(height: Dimensions.height20,),
-                    ],
+                        TextButton(onPressed: (){
+                          Navigator.of(ctx).pop();
+                        }, child: const Text('Close')),
+                        SizedBox(height: Dimensions.height20,),
+                      ],
+                    ),
                   ),
                 )
             ],
-             title: Center(child: Text('Forget Password ?',style: GoogleFonts.poppins(fontSize: Dimensions.height30))),
+             title: Center(child: Text('Forget Password ?',style: GoogleFonts.poppins(fontSize: Dimensions.height30,fontWeight: FontWeight.w500))),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(Dimensions.height25),bottomLeft: Radius.circular(Dimensions.height25))),
             content: Container(
                width: MediaQuery.of(ctx).size.width,
-            height: Dimensions.height100,
+            height: Dimensions.height110,
                padding: EdgeInsets.all(Dimensions.height11),
             color: Colors.white,
               child: ListView(

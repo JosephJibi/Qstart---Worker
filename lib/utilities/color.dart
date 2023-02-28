@@ -4,41 +4,33 @@ import 'package:flutter/material.dart';
 class AppColor {
 
   //maingradient
-   Gradient mainGradient = const LinearGradient(
+   Gradient mainGradient =  LinearGradient(
       begin: Alignment.topRight,
       end: Alignment.bottomLeft,
-      // stops: [
-      //   0.2,
-      //   0.5,
-      //   0.8,
-      //   0.7
-      // ],
       colors: [
-        Color.fromARGB(255, 251, 252, 252),
-        Color.fromARGB(255, 234, 243, 249),
-        Color.fromARGB(255, 215, 233, 249),
-        Color.fromARGB(255, 186, 222, 249)
-      ]);
+        Colors.white12,
+        Colors.white24,
+        Colors.blue.shade100,
+        Colors.blue.shade200,
+        Colors.blue.shade400,
+      ]
+      );
 
       //maingradient
-   Gradient secondGradient = const LinearGradient(
+   Gradient secondGradient =  LinearGradient(
       begin: Alignment.centerRight,
       end: Alignment.centerLeft,
-      // stops: [
-      //   0.2,
-      //   0.5,
-      //   0.8,
-      //   0.7
-      // ],
       colors: [
-        Color.fromARGB(255, 251, 252, 252),
-        Color.fromARGB(255, 234, 243, 249),
-        Color.fromARGB(255, 215, 233, 249),
-        Color.fromARGB(255, 186, 222, 249)
+        
+      Colors.white12,
+        Colors.white24,
+        Colors.blue.shade100,
+        Colors.blue.shade200,
+        Colors.blue.shade400,
       ]);
 
   
-      static  final doneColour =  Colors.lightGreen.shade400;
+            static  final doneColour =  Colors.lightGreen.shade400;
       static  final doneVerifiedColour =  Colors.green.shade700;
       static  final pendingColour =  Colors.orange.shade700;
       static  final  declainedColour =  Colors.redAccent;

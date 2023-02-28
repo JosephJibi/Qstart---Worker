@@ -25,6 +25,7 @@ final ctrl = Get.put(AuthController());
     return Container(
       decoration: BoxDecoration(
         gradient: AppColor().secondGradient,
+        
       ),
       child: Column(children: [
         //first container(main 1)
@@ -33,6 +34,7 @@ final ctrl = Get.put(AuthController());
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             gradient: AppColor().mainGradient,
+            
           ),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
              SizedBox(
@@ -74,9 +76,10 @@ final ctrl = Get.put(AuthController());
                   ),
                   boxShadow:  [
                     BoxShadow(
-                      color: const Color.fromARGB(255, 97, 85, 85),
-                      spreadRadius: Dimensions.height07,
+                     color:  Colors.grey.shade500,
+                      spreadRadius: Dimensions.height1,
                       blurRadius: Dimensions.height15,
+                      offset: Offset(1,-14)
                     )
                   ]),
               //if complaint field of current user is null then we not need to use streambuilder because thatmeans user have not posted any complaints
@@ -113,6 +116,7 @@ final ctrl = Get.put(AuthController());
                           return const Center(child: CircularProgressIndicator());
                         } else {
                           return ListView(
+                            physics: BouncingScrollPhysics(),
                             children: snapshot.data!.docs.map((document) {
                               print('working2');
                              
