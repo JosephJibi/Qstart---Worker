@@ -4,7 +4,6 @@ import 'package:qstart_worker/Screens/worker/Category/DoneScreen.dart';
 import 'package:qstart_worker/Screens/worker/Category/PendingScreen.dart';
 import 'package:qstart_worker/Screens/worker/Category/RequestedScreen.dart';
 import 'package:qstart_worker/utilities/Dimensions.dart';
-import '../../../utilities/color.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -18,12 +17,22 @@ class _CategoryScreenState extends State<CategoryScreen> {
   Widget build(BuildContext context) {
     return Container(
         //container for main background color
-        decoration: BoxDecoration(gradient: AppColor().secondGradient),
+        decoration: const BoxDecoration(
+          // gradient: AppColor().secondGradient
+          image: DecorationImage(
+              image: AssetImage("assets/images/background3.jpg"),
+              fit: BoxFit.fill),
+        ),
         child: Column(children: [
           //first container
           Container(
             //top most container having gradient background
-            decoration: BoxDecoration(gradient: AppColor().mainGradient),
+            decoration: const BoxDecoration(
+              // gradient: AppColor().mainGradient
+              image: DecorationImage(
+                  image: AssetImage("assets/images/background3.jpg"),
+                  fit: BoxFit.cover),
+            ),
             child: Column(children: [
               SizedBox(
                 height: Dimensions.height100,
@@ -31,30 +40,41 @@ class _CategoryScreenState extends State<CategoryScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: Dimensions.height100,
-                    width: Dimensions.width250,
-                    child: Image.asset(
-                      'assets/images/logotext.png',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  // Text(
-                  //   'QSTART',
-                  //   style: GoogleFonts.amaranth(
-                  //     color: const Color.fromARGB(255, 77, 82, 89),
-                  //     letterSpacing: Dimensions.height2,
-                  //     fontSize: Dimensions.height40,
-                  //     fontWeight: FontWeight.bold,
+                  // Container(
+                  //   height: Dimensions.height100,
+                  //   width: Dimensions.width250,
+                  //   child: Image.asset(
+                  //     'assets/images/logotext.png',
+                  //     fit: BoxFit.cover,
                   //   ),
                   // ),
+                  Container(
+                    height: Dimensions.height59,
+                    margin: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                        color: Colors.white, shape: BoxShape.circle),
+                    child: Image.asset(
+                      "assets/images/logo2.png",
+                    ),
+                  ),
+                  Text(
+                    'QSTART',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      letterSpacing: Dimensions.height2,
+                      fontSize: Dimensions.height40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(height: Dimensions.height15,),
+              SizedBox(
+                height: Dimensions.height25,
+              ),
             ]),
           ),
           //second container
-    
+
           Expanded(
             child: Container(
               width: MediaQuery.of(context).size.width,
@@ -64,22 +84,22 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     topLeft: Radius.circular(Dimensions.height30),
                     topRight: Radius.circular(Dimensions.height30),
                   ),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
-                      color:  Colors.grey.shade500,
-                      spreadRadius: Dimensions.height1,
-                      blurRadius: Dimensions.height15,
-                      offset: Offset(1,-14)
-                    )
+                        color: Colors.white24,
+                        // spreadRadius: 0.7,
+                        blurRadius: 10,
+                        offset: Offset(2, -2))
                   ]),
               child: DefaultTabController(
-                
                 length: 3,
                 child: Padding(
-                  padding:  EdgeInsets.all(Dimensions.height5),
+                  padding: EdgeInsets.all(Dimensions.height5),
                   child: Column(
                     children: [
-                      SizedBox(height: Dimensions.height20,),
+                      SizedBox(
+                        height: Dimensions.height20,
+                      ),
                       // give the tab bar a height [can change hheight to preferred height]
                       Container(
                         height: Dimensions.height45,
@@ -89,10 +109,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             Dimensions.height25,
                           ),
                         ),
-                        
                         child: TabBar(
-                       
-                        physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           // give the indicator a decoration (color and border radius)
                           indicator: BoxDecoration(
                             borderRadius: BorderRadius.circular(
@@ -110,31 +128,34 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           ),
                           labelColor: Colors.white,
                           unselectedLabelColor: Colors.black,
+                          labelStyle: GoogleFonts.poppins(),
                           tabs: const [
                             // first tab [you can add an icon using the icon property]
                             Tab(
                               text: 'Done',
                             ),
-    
+
                             // second tab [you can add an icon using the icon property]
                             Tab(
                               text: 'Pending',
                             ),
-                            Tab(text: 'Requested',)
+                            Tab(
+                              text: 'Requested',
+                            )
                           ],
                         ),
                       ),
                       // tab bar view here
-                       Expanded(
+                      Expanded(
                         child: TabBarView(
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           children: [
                             // first tab bar view widget
                             DoneScreen(),
-    
+
                             // second tab bar view widget
                             PendingScreen(),
-    
+
                             //third tab bar view widget
                             RequestedScreen()
                           ],

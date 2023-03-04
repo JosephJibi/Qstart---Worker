@@ -25,6 +25,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: ListView(
+            physics: BouncingScrollPhysics(),
             padding: EdgeInsets.only(top: Dimensions.height10,bottom: Dimensions.height10),
         children: [
           SizedBox(
@@ -37,13 +38,13 @@ class LoginScreen extends StatelessWidget {
                  Text('Welcome,',
                     style: GoogleFonts.amaranth(
                         letterSpacing: Dimensions.height2,
-                        fontSize: Dimensions.height50,
+                        fontSize: Dimensions.height40,
                         fontWeight: FontWeight.bold,
                       )),
                 Text(
                   'Glad to see you!',
                   style: GoogleFonts.firaSans(
-                    fontSize: Dimensions.height38,
+                    fontSize: Dimensions.height28,
                   ),
                 )
               ],
@@ -121,7 +122,7 @@ class LoginScreen extends StatelessWidget {
                     TextButton(
                         onPressed: () {
                           popUpBox(context);
-                        }, child: const Text('forget password')),
+                        }, child: const Text('forget password ?')),
                   ],
                 ),
                 //sign In button
@@ -143,7 +144,7 @@ class LoginScreen extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
-                            fontSize: Dimensions.height22),
+                            fontSize: Dimensions.height20),
                       )),
                     ),
                   ),
@@ -203,7 +204,7 @@ class LoginScreen extends StatelessWidget {
                                 style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500,
-                                    fontSize: Dimensions.height20),
+                                    fontSize: Dimensions.height15),
                               )),
                             ),
                        ),
@@ -218,11 +219,17 @@ class LoginScreen extends StatelessWidget {
                   ),
                 )
             ],
-             title: Center(child: Text('Forget Password ?',style: GoogleFonts.poppins(fontSize: Dimensions.height30,fontWeight: FontWeight.w500))),
+            
+             title: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+               children: [
+                 Text('Forget Password ?',style: GoogleFonts.poppins(fontSize: Dimensions.height30,fontWeight: FontWeight.w500)),
+               ],
+             ),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(Dimensions.height25),bottomLeft: Radius.circular(Dimensions.height25))),
             content: Container(
                width: MediaQuery.of(ctx).size.width,
-            height: Dimensions.height110,
+            height: Dimensions.height90,
                padding: EdgeInsets.all(Dimensions.height11),
             color: Colors.white,
               child: ListView(

@@ -27,7 +27,7 @@ class RegistrationScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(children: [
           SizedBox(
-            height: Dimensions.height10,
+            height: Dimensions.height20,
           ),
           Text('Create Account',
               style: GoogleFonts.amaranth(
@@ -186,7 +186,7 @@ class RegistrationScreen extends StatelessWidget {
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: Dimensions.height25),
+                                  fontSize: Dimensions.height20),
                             )),
                           ),
                         ),

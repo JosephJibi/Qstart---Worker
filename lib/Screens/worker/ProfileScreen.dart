@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,17 +9,14 @@ import '../../utilities/Dimensions.dart';
 import '../Popup/HelpPopup.dart';
 
 class ProfileScreen extends StatelessWidget {
-   ProfileScreen({super.key});
+  ProfileScreen({super.key});
 
   final ctrl = Get.put(AuthController());
- 
 
   @override
   Widget build(BuildContext context) {
-        //add to profile image var of obs
+    //add to profile image var of obs
     ctrl.profimg.value = ctrl.profiledata['profileimg'];
-
-     
 
     return Container(
       child: SafeArea(
@@ -53,54 +47,57 @@ class ProfileScreen extends StatelessWidget {
                         child: (ctrl.profimg.value == '')
                             ? Image.asset(
                                 fit: BoxFit.cover, 'assets/images/default.png')
-                            : FadeInImage
-                            (
-                              image: NetworkImage(
+                            : FadeInImage(
+                                image: NetworkImage(
                                   ctrl.profimg.value,
-                                 
                                 ),
-                                placeholder: const AssetImage( 'assets/images/imageloading.gif'),
-                                 fit: BoxFit.cover,
-                            )),
+                                placeholder: const AssetImage(
+                                    'assets/images/imageloading.gif'),
+                                fit: BoxFit.cover,
+                              )),
                   ),
                 ),
                 Positioned(
-                  // top: Dimensions.height140, //
-                  // left: Dimensions.height130, //
-                  bottom: 0,
-                  right: -20,
-                  // child: IconButton(
-                  //     onPressed: () {
-                  //       ctrl.addProfileImage();
-                  //     },
-                  //     icon: Icon(
-                  //       FontAwesomeIcons.cameraRetro,
-                  //       size: Dimensions.height28,
-                  //     )),
-                 child:RawMaterialButton(onPressed: (){
-                     ctrl.addProfileImage();
-                  },
-                  elevation: 2.0,
-                fillColor: Color(0xFFF5F6F9),
-                child: Icon(Icons.camera_alt_outlined, color: Colors.black,),
-                padding: EdgeInsets.all(10.0),
-                shape: CircleBorder(),
-                  )
-                ),
+                    // top: Dimensions.height140, //
+                    // left: Dimensions.height130, //
+                    bottom: 0,
+                    right: -20,
+                    // child: IconButton(
+                    //     onPressed: () {
+                    //       ctrl.addProfileImage();
+                    //     },
+                    //     icon: Icon(
+                    //       FontAwesomeIcons.cameraRetro,
+                    //       size: Dimensions.height28,
+                    //     )),
+                    child: RawMaterialButton(
+                      onPressed: () {
+                        ctrl.addProfileImage();
+                      },
+                      elevation: 2.0,
+                      fillColor: const Color(0xFFF5F6F9),
+                      padding: const EdgeInsets.all(10.0),
+                      shape: const CircleBorder(),
+                      child: const Icon(
+                        Icons.camera_alt_outlined,
+                        color: Colors.black,
+                      ),
+                    )),
               ],
             ),
             SizedBox(
               height: Dimensions.height10,
             ),
             Text(ctrl.profiledata['username'],
-                style: TextStyle(
-                    letterSpacing: Dimensions.height2,
-                    fontSize: Dimensions.height35,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Amaranth-Bold')),
+                style: GoogleFonts.poppins(
+                  letterSpacing: Dimensions.height2,
+                  fontSize: Dimensions.height30,
+                  fontWeight: FontWeight.w500,
+                )),
             Text(ctrl.profiledata['type'],
-                style: GoogleFonts.firaSans(
-                  fontSize: Dimensions.height25,
+                style: GoogleFonts.poppins(
+                  fontSize: Dimensions.height22,
+                  fontWeight: FontWeight.w400,
                 )),
             SizedBox(
               height: Dimensions.height20,
@@ -115,11 +112,11 @@ class ProfileScreen extends StatelessWidget {
                     Column(
                       children: [
                         Text('${ctrl.profiledata['totalcomplaintcount']}',
-                            style: GoogleFonts.firaSans(
-                                fontSize: Dimensions.height25,
-                                fontWeight: FontWeight.w500)),
+                            style: GoogleFonts.poppins(
+                              fontSize: Dimensions.height25,
+                            )),
                         Text('Complaints',
-                            style: GoogleFonts.firaSans(
+                            style: GoogleFonts.poppins(
                                 fontSize: Dimensions.height20)),
                       ],
                     ),
@@ -130,12 +127,12 @@ class ProfileScreen extends StatelessWidget {
                       children: [
                         Text(
                           '${ctrl.profiledata['donecount']}',
-                          style: GoogleFonts.firaSans(
-                              fontSize: Dimensions.height25,
-                              fontWeight: FontWeight.w500),
+                          style: GoogleFonts.poppins(
+                            fontSize: Dimensions.height25,
+                          ),
                         ),
                         Text('Done',
-                            style: GoogleFonts.firaSans(
+                            style: GoogleFonts.poppins(
                                 fontSize: Dimensions.height20)),
                       ],
                     ),
@@ -150,9 +147,10 @@ class ProfileScreen extends StatelessWidget {
             ),
             card(
                 title: 'Complaints Pending',
-                
                 content: ctrl.profiledata['pendingcount'].toString(),
-                cardicon: const Icon(Icons.numbers)),
+                cardicon: const Icon(
+                  Icons.numbers,
+                )),
             card(
                 title: 'E-mail',
                 // content: 'josephjibi33@gmail.com',
@@ -163,13 +161,20 @@ class ProfileScreen extends StatelessWidget {
                 // content: '9496035739',
                 content: ctrl.profiledata['phoneNo'],
                 cardicon: const Icon(Icons.phone)),
-           //Different Statues popup
+            //Different Statues popup
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                TextButton(onPressed: (){
-                    helpPopup(context);
-                }, child: Text('Different Statues ? '))
+                TextButton(
+                    onPressed: () {
+                      helpPopup(context);
+                    },
+                    child: Text(
+                      'Different Statues ? ',
+                      style: GoogleFonts.poppins(
+                          fontSize: Dimensions.height12,
+                          fontWeight: FontWeight.w400),
+                    ))
               ],
             ),
 
@@ -188,10 +193,10 @@ class ProfileScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(Dimensions.height12)),
                 child: Center(
                     child: Text(
-                  'Log out',
-                  style: TextStyle(
+                  'Logout',
+                  style: GoogleFonts.poppins(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       fontSize: Dimensions.height18),
                 )),
               ),
@@ -201,10 +206,11 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
   }
+
   Card card({String? title, String? content, Icon? cardicon}) {
     return Card(
       color: const Color.fromARGB(255, 244, 245, 245),
-      elevation: Dimensions.height5,
+      elevation: Dimensions.height1,
       margin: EdgeInsets.symmetric(
           horizontal: Dimensions.width14, vertical: Dimensions.height10),
       child: Padding(
